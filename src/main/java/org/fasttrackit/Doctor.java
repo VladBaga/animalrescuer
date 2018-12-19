@@ -4,7 +4,8 @@ public class Doctor {
 
     String name;
     String haircolor;
-    boolean food;
+    String specialization;
+    String eyecolor;
     boolean pills;
     boolean vitamins;
 }

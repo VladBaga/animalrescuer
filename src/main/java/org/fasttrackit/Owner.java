@@ -3,10 +3,11 @@ package org.fasttrackit;
 import java.math.BigDecimal;
 
 public class Owner {
+    String name;
     String gender;
     String haircolor;
-    boolean food;
-    boolean pills;
+    String skincolor;
+    String eyecolor;
     double coins;
     Animal animal;
 }
