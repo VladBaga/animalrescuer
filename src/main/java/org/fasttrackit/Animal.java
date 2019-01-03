@@ -1,6 +1,5 @@
 package org.fasttrackit;
 
-import java.math.BigDecimal;
 
 public class Animal {
     String name;

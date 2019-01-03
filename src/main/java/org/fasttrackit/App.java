@@ -57,21 +57,6 @@ public class App
         petFood2.available = true;
         petFood2.quantity = 312;
 
-        Clothes clothes = new Clothes();
-        clothes.name = "Collar";
-        clothes.color = "pink";
-
-        Shop shop = new Shop();
-        shop.name = "SuperMarket";
-        shop.prices = "253$";
-
-        Vendor vendor = new Vendor();
-        vendor.eyecolor = "blue";
-        vendor.skincolor = "white";
-
-        Room room = new Room();
-        room.name = "Bedroom";
-        room.use = "sleep";
 
         owner.animal = animal;
     }

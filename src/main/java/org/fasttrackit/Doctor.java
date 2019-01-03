@@ -1,11 +1,8 @@
 package org.fasttrackit;
 
-public class Doctor {
+public class Doctor extends Human {
 
-    String name;
-    String haircolor;
     String specialization;
-    String eyecolor;
     boolean pills;
     boolean vitamins;
 }

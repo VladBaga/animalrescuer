@@ -1,13 +1,8 @@
 package org.fasttrackit;
 
-import java.math.BigDecimal;
 
-public class Owner {
-    String name;
-    String gender;
-    String haircolor;
-    String skincolor;
-    String eyecolor;
+public class Owner extends Human {
+
     double coins;
     Animal animal;
 }
