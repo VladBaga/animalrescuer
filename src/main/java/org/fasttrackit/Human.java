@@ -7,4 +7,11 @@ public class Human {
     String haircolor;
     String skincolor;
     String eyecolor;
+    private Animal animal;
+
+    public Human(Animal animal){
+        this.animal = animal;
+        System.out.println("Custom animal invoked.");
+
+    }
 }

@@ -7,10 +7,10 @@ public class Animal {
     String favfood;
     String favactivity;
     String gender;
-    String type;
     int age;
     int health;
     int hunger;
     int happy;
     int pawscount;
+
 }

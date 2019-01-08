@@ -8,20 +8,36 @@ public class App
 {
     public static void main( String[] args )
     {
-        Animal animal = new Animal();
-        animal.name = "Spike";
-        animal.age = 3;
-        animal.health = 9;
-        animal.hunger = 7;
-        animal.happy = 9;
-        animal.favfood = "Chicken";
-        animal.favactivity = "Walk";
-        animal.color = "black";
-        animal.pawscount = 4;
-        animal.gender = "male";
-        animal.type = "Dog";
+        Dog dog = new Dog();
+        dog.name = "Spike";
+        dog.age = 3;
+        dog.health = 9;
+        dog.hunger = 7;
+        dog.happy = 9;
+        dog.favfood = "Chicken";
+        dog.favactivity = "Walk";
+        dog.color = "black";
+        dog.pawscount = 4;
+        dog.gender = "male";
+        dog.collar = true;
+        dog.collarcolor = "red";
 
-        Owner owner = new Owner();
+        Cat animal = new Cat();
+        animal.name = "Tom";
+        animal.age = 5;
+        animal.health = 8;
+        animal.hunger = 6;
+        animal.happy = 7;
+        animal.favfood = "Fish";
+        animal.favactivity = "Scratch";
+        animal.color = "grey";
+        animal.pawscount = 4;
+        animal.gender = "female";
+        animal.sandbox = false;
+        animal.sandboxcolor = "pink";
+
+
+        Owner owner = new Owner(animal);
         owner.gender = "Male";
         owner.haircolor = "white";
         owner.coins = 512;
@@ -29,7 +45,7 @@ public class App
         owner.skincolor = "black";
         owner.eyecolor = "green";
 
-        Doctor doctor = new Doctor();
+        Doctor doctor = new Doctor(animal);
         doctor.name = "John";
         doctor.haircolor = "yellow";
         doctor.pills = true;
@@ -39,7 +55,6 @@ public class App
 
         Activity activity = new Activity();
         activity.name = "Walk";
-        activity.name = "Ball";
         activity.name = "Boomerang";
         activity.name = "Bath";
         activity.name = "Race";
@@ -57,7 +72,5 @@ public class App
         petFood2.available = true;
         petFood2.quantity = 312;
 
-
-        owner.animal = animal;
     }
 }
