@@ -27,4 +27,6 @@ public class Owner extends Human {
     public Owner(Animal animal) {
         super(animal);
     }
+    public static String feed = " fed ";
+    public static String play = " played ";
 }

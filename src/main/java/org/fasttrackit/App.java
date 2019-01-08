@@ -1,5 +1,7 @@
 package org.fasttrackit;
 
+import java.sql.SQLOutput;
+
 /**
  * :)
  *
@@ -54,11 +56,7 @@ public class App
         doctor.setEyecolor("brown");
 
         Activity activity = new Activity();
-        activity.setName("Walk");
-        activity.setName("Boomerang");
-        activity.setName("Ball");
-        activity.setName("Race");
-        activity.setName("Sleep");
+        activity.setName("The ball");
 
         PetFood petFood = new PetFood();
         petFood.setName("Chicken");
@@ -72,5 +70,7 @@ public class App
         petFood2.setAvailable(true);
         petFood2.setQuantity(312);
 
+        System.out.println(owner.getName()+ Owner.feed + dog.getName() + " with " + petFood.getName());
+        System.out.println(owner.getName()+ Owner.play + "with " + animal.getName() + " with " + activity.getName());
     }
 }
