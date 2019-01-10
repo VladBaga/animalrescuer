@@ -7,7 +7,16 @@ public class Human {
    private String haircolor;
    private String skincolor;
    private String eyecolor;
-    private Animal animal;
+   private Animal animal;
+
+    public Human(Animal animal) {
+        this.name = name;
+        this.gender = gender;
+        this.haircolor = haircolor;
+        this.skincolor = skincolor;
+        this.eyecolor = eyecolor;
+        this.animal = animal;
+    }
 
     public String getName() {
         return name;
@@ -55,11 +64,5 @@ public class Human {
 
     public void setAnimal(Animal animal) {
         this.animal = animal;
-    }
-
-    public Human(Animal animal){
-        this.animal = animal;
-        System.out.println("Custom animal invoked.");
-
     }
 }

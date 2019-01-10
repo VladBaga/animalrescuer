@@ -2,11 +2,26 @@ package org.fasttrackit;
 
 
 public class Animal {
-   private String name;
+
+    private String name;
    private String color;
    private String favfood;
    private String favactivity;
    private String gender;
+
+    public Animal()                     //Constructor
+    {
+        this.name = name;
+        this.color = color;
+        this.favfood = favfood;
+        this.favactivity = favactivity;
+        this.gender = gender;
+        this.age = age;
+        this.health = health;
+        this.hunger = hunger;
+        this.happy = happy;
+        this.pawscount = pawscount;
+    }                                   //Constructor
 
     public String getName() {
         return name;

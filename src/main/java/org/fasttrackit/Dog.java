@@ -5,6 +5,12 @@ public class Dog extends Animal {
     private String collarcolor;
     private boolean collar;
 
+    public Dog()                           //Constructor
+    {
+        this.collarcolor = collarcolor;
+        this.collar = collar;
+    }                                      //Constructor
+
     public String getCollarcolor() {
         return collarcolor;
     }

@@ -24,22 +24,22 @@ public class App
         dog.setCollar(true);
         dog.setCollarcolor("red");
 
-        Cat animal = new Cat();
-        animal.setName("Tom");
-        animal.setAge(5);
-        animal.setHealth(10);
-        animal.setHunger(5);
-        animal.setHappy(7);
-        animal.setFavfood("Fish");
-        animal.setFavactivity("Ball");
-        animal.setColor("grey");
-        animal.setPawscount(4);
-        animal.setGender("Female");
-        animal.setSandbox(false);
-        animal.setSandboxcolor("pink");
+        Cat cat = new Cat();
+        cat.setName("Tom");
+        cat.setAge(5);
+        cat.setHealth(10);
+        cat.setHunger(5);
+        cat.setHappy(7);
+        cat.setFavfood("Fish");
+        cat.setFavactivity("Ball");
+        cat.setColor("grey");
+        cat.setPawscount(4);
+        cat.setGender("Female");
+        cat.setSandbox(false);
+        cat.setSandboxcolor("pink");
 
 
-        Owner owner = new Owner(animal);
+        Owner owner = new Owner(cat);
         owner.setGender("Male");
         owner.setHaircolor("white");
         owner.setCoins(512);
@@ -47,7 +47,7 @@ public class App
         owner.setSkincolor("black");
         owner.setEyecolor("green");
 
-        Doctor doctor = new Doctor(animal);
+        Doctor doctor = new Doctor(dog);
         doctor.setName("John");
         doctor.setHaircolor("blonde");
         doctor.setPills(true);
@@ -70,7 +70,9 @@ public class App
         petFood2.setAvailable(true);
         petFood2.setQuantity(312);
 
-        System.out.println(owner.getName()+ Owner.feed + dog.getName() + " with " + petFood.getName());
-        System.out.println(owner.getName()+ Owner.play + "with " + animal.getName() + " with " + activity.getName());
+        owner.feed(dog,petFood);
+        owner.play(cat,activity);
+
     }
+
 }

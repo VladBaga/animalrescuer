@@ -5,6 +5,12 @@ public class Cat extends Animal {
     private String sandboxcolor;
     private boolean sandbox;
 
+    public Cat()                        //Constructor
+    {
+        this.sandboxcolor = sandboxcolor;
+        this.sandbox = sandbox;
+    }                                   //Constructor
+
     public String getSandboxcolor() {
         return sandboxcolor;
     }

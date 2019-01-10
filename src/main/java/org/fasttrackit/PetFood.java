@@ -4,6 +4,13 @@ public class PetFood {
 
     private String name;
 
+    public PetFood() {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        this.available = available;
+    }
+
     public String getName() {
         return name;
     }

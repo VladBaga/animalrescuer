@@ -2,9 +2,17 @@ package org.fasttrackit;
 
 public class Doctor extends Human {
 
-   private String specialization;
-   private boolean pills;
-   private boolean vitamins;
+    private String specialization;
+    private boolean pills;
+    private boolean vitamins;
+
+    public Doctor(Animal animal) {
+        super(animal);
+        this.specialization = specialization;
+        this.pills = pills;
+        this.vitamins = vitamins;
+    }
+
 
     public String getSpecialization() {
         return specialization;
@@ -29,9 +37,6 @@ public class Doctor extends Human {
     public void setVitamins(boolean vitamins) {
         this.vitamins = vitamins;
     }
-
-    public Doctor(Animal animal) {
-        super(animal);
-    }
 }
+
 

@@ -1,7 +1,12 @@
 package org.fasttrackit;
 
 public class Activity {
+
     private String name;
+
+    public Activity() {
+        this.name = name;
+    }
 
     public String getName() {
         return name;
