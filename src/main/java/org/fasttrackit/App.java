@@ -73,6 +73,9 @@ public class App
         owner.feed(dog,petFood);
         owner.play(cat,activity);
 
+        dog.happiness(dog);
+        cat.happiness(cat);
+
     }
 
 }

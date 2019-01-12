@@ -4,10 +4,19 @@ package org.fasttrackit;
 public class Animal {
 
     private String name;
-   private String color;
-   private String favfood;
-   private String favactivity;
-   private String gender;
+    private String color;
+    private String favfood;
+    private String favactivity;
+    private String gender;
+    private int age;
+    private int happy;
+    private int health;
+    private int hunger;
+    private int pawscount;
+
+    public void happiness(Animal animal){
+        return;
+    }
 
     public Animal()                     //Constructor
     {
@@ -17,9 +26,9 @@ public class Animal {
         this.favactivity = favactivity;
         this.gender = gender;
         this.age = age;
+        this.happy = happy;
         this.health = health;
         this.hunger = hunger;
-        this.happy = happy;
         this.pawscount = pawscount;
     }                                   //Constructor
 
@@ -102,11 +111,5 @@ public class Animal {
     public void setPawscount(int pawscount) {
         this.pawscount = pawscount;
     }
-
-    private int age;
-   private int health;
-   private int hunger;
-   private int happy;
-   private int pawscount;
 
 }

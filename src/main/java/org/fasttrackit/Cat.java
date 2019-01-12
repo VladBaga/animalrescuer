@@ -5,6 +5,12 @@ public class Cat extends Animal {
     private String sandboxcolor;
     private boolean sandbox;
 
+    @Override
+    public void happiness(Animal animal) {
+        System.out.println(animal.getName() + " a tors de bucurie.");
+        super.happiness(animal);
+    }
+
     public Cat()                        //Constructor
     {
         this.sandboxcolor = sandboxcolor;
