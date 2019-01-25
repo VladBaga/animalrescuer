@@ -9,9 +9,9 @@ public class Animal {
     private String favactivity;
     private String gender;
     private int age;
-    private int happy;
-    private int health;
-    private int hunger;
+    private double happy;
+    private double health;
+    private double hunger;
     private int pawscount;
 
     public void happiness(Animal animal) {
@@ -80,27 +80,27 @@ public class Animal {
         this.age = age;
     }
 
-    public int getHealth() {
+    public double getHealth() {
         return health;
     }
 
-    public void setHealth(int health) {
+    public void setHealth(double health) {
         this.health = health;
     }
 
-    public int getHunger() {
+    public double getHunger() {
         return hunger;
     }
 
-    public void setHunger(int hunger) {
+    public void setHunger(double hunger) {
         this.hunger = hunger;
     }
 
-    public int getHappy() {
+    public double getHappy() {
         return happy;
     }
 
-    public void setHappy(int happy) {
+    public void setHappy(double happy) {
         this.happy = happy;
     }
 
