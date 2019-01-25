@@ -10,7 +10,8 @@ public class App
 {
     public static void main( String[] args )
     {
-        Dog dog = new Dog();
+
+        Animal dog = new Dog();
         dog.setName("Spike");
         dog.setAge(3);
         dog.setHealth(9);
@@ -21,10 +22,10 @@ public class App
         dog.setColor("black");
         dog.setPawscount(4);
         dog.setGender("Male");
-        dog.setCollar(true);
-        dog.setCollarcolor("red");
+        ((Dog) dog).setCollar(true);
+        ((Dog) dog).setCollarcolor("red");
 
-        Cat cat = new Cat();
+        Animal cat = new Cat();
         cat.setName("Tom");
         cat.setAge(5);
         cat.setHealth(10);
@@ -35,8 +36,8 @@ public class App
         cat.setColor("grey");
         cat.setPawscount(4);
         cat.setGender("Female");
-        cat.setSandbox(false);
-        cat.setSandboxcolor("pink");
+        ((Cat) cat).setSandbox(false);
+        ((Cat) cat).setSandboxcolor("pink");
 
 
         Owner owner = new Owner(cat);
@@ -70,12 +71,11 @@ public class App
         petFood2.setAvailable(true);
         petFood2.setQuantity(312);
 
-        owner.feed(dog,petFood);
-        owner.play(cat,activity);
+        owner.feed(owner,dog,petFood);
+        owner.play(owner,cat,activity);
 
         dog.happiness(dog);
         cat.happiness(cat);
-
     }
 
 }

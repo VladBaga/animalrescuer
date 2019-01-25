@@ -14,8 +14,8 @@ public class Animal {
     private int hunger;
     private int pawscount;
 
-    public void happiness(Animal animal){
-        return;
+    public void happiness(Animal animal) {
+
     }
 
     public Animal()                     //Constructor

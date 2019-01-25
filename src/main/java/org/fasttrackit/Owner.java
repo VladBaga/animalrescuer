@@ -6,13 +6,13 @@ public class Owner extends Human {
     private double coins;
     private Animal animal;
 
-    public void feed(Animal animal, PetFood petFood){
-        System.out.println(" Your human just fed " + animal.getName() + " with " + petFood.getName());
+    public void feed(Owner owner, Animal animal, PetFood petFood){
+        System.out.println(owner.getName() + " just fed " + animal.getName() + " with " + petFood.getName());
         return;
     }
 
-    public void play(Animal animal, Activity activity){
-        System.out.println(" Your human just played with " + animal.getName() + " with " + activity.getName());
+    public void play(Owner owner, Animal animal, Activity activity){
+        System.out.println(owner.getName() + " just played with " + animal.getName() + " with " + activity.getName());
         return;
     }
 
