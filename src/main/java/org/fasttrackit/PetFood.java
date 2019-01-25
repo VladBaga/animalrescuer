@@ -3,6 +3,9 @@ package org.fasttrackit;
 public class PetFood {
 
     private String name;
+    private int price;
+    private int quantity;
+    private boolean available;
 
     public PetFood() {
         this.name = name;
@@ -42,8 +45,4 @@ public class PetFood {
     public void setAvailable(boolean available) {
         this.available = available;
     }
-
-    private int price;
-    private int quantity;
-    private boolean available;
 }

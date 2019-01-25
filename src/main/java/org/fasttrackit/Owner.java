@@ -6,18 +6,27 @@ public class Owner extends Human {
     private double coins;
     private Animal animal;
 
-    public double feed(Owner owner, Animal animal, PetFood petFood){
+    public void feed(Owner owner, Animal animal, PetFood petFood) {
+
         System.out.println(owner.getName() + " just fed " + animal.getName() + " with " + petFood.getName());
         double hungerLevel = animal.getHunger() - 1;
         System.out.println(animal.getName() + " 's hunger level is : " + hungerLevel);
-        return hungerLevel;
+
+        if (animal.getFavfood().equals(petFood.getName())) {
+            double happyLevel = animal.getHappy() + 1;
+            System.out.println("and happy status is : " + happyLevel);
+        }
     }
 
-    public double play(Owner owner, Animal animal, Activity activity){
+    public void play(Owner owner, Animal animal, Activity activity){
         System.out.println(owner.getName() + " just played with " + animal.getName() + " with " + activity.getName());
         double happyLevel = animal.getHappy() + 1;
         System.out.println(animal.getName() + "'s happiness : " + happyLevel);
-        return happyLevel;
+
+        if(animal.getFavactivity().equals(activity.getName())){
+            double happyLevel2 = animal.getHappy() + 2;
+            System.out.println("That's " + animal.getName() + " 's favourite activity, happiness : " + happyLevel2);
+        }
     }
 
     public Owner(Animal animal) {

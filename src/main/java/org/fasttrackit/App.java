@@ -32,7 +32,7 @@ public class App
         cat.setHunger(5);
         cat.setHappy(7);
         cat.setFavfood("Fish");
-        cat.setFavactivity("Ball");
+        cat.setFavactivity("The ball");
         cat.setColor("grey");
         cat.setPawscount(4);
         cat.setGender("Female");
