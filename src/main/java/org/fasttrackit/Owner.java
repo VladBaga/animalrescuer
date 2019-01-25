@@ -16,7 +16,7 @@ public class Owner extends Human {
     public double play(Owner owner, Animal animal, Activity activity){
         System.out.println(owner.getName() + " just played with " + animal.getName() + " with " + activity.getName());
         double happyLevel = animal.getHappy() + 1;
-        System.out.println(animal.getName() + "'s happiness " + happyLevel);
+        System.out.println(animal.getName() + "'s happiness : " + happyLevel);
         return happyLevel;
     }
 
