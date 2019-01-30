@@ -5,10 +5,8 @@ public class Dog extends Animal {
     private String collarcolor;
     private boolean collar;
 
-    @Override
-    public void happiness(Animal animal) {
-        System.out.println(animal.getName() + " a dat din coada de bucurie!");
-        super.happiness(animal);
+    public void happiness() {
+        System.out.println(getName() + " a dat din coada de bucurie!");
     }
 
     public Dog()                           //Constructor

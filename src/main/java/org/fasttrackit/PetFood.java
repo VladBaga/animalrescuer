@@ -7,7 +7,7 @@ public class PetFood {
     private int quantity;
     private boolean available;
 
-    public PetFood() {
+    public PetFood(String name) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;

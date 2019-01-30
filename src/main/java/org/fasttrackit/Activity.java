@@ -4,7 +4,7 @@ public class Activity {
 
     private String name;
 
-    public Activity() {
+    public Activity(String name) {
         this.name = name;
     }
 

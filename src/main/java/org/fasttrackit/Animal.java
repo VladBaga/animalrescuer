@@ -14,7 +14,8 @@ public class Animal {
     private double hunger;
     private int pawscount;
 
-    public void happiness(Animal animal) {
+    public void happiness() {
+        System.out.println(getName() + "is happy.");
 
     }
 
