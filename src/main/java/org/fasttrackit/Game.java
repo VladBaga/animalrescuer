@@ -26,7 +26,7 @@ public class Game {
         // initFood();
         // initActivities();
         // displayFood();
-        // displayActivities();
+        /// displayActivities();
     }
 
     private String getOwnerNameFromUser() {
