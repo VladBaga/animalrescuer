@@ -1,5 +1,7 @@
 package org.fasttrackit;
 
+import java.awt.*;
+
 public class Cat extends Animal {
 
     private String sandboxcolor;
