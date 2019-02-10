@@ -6,8 +6,7 @@ public class Doctor extends Human {
     private boolean pills;
     private boolean vitamins;
 
-    public Doctor(Animal animal) {
-        super(animal);
+    public Doctor() {
         this.specialization = specialization;
         this.pills = pills;
         this.vitamins = vitamins;

@@ -1,8 +1,6 @@
 package org.fasttrackit;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 import static java.lang.String.valueOf;
 
@@ -11,18 +9,20 @@ public class Game {
     private Owner owner;
     private Animal animal;
     private Doctor doctor;
+    private PetFood petFood;
 
     private List<PetFood> availableFood = new ArrayList<>();
     private Activity[] availableActivities = new Activity[10];
     private List<Animal> availableAnimals = new ArrayList<>();
 
     public void start() {
-        System.out.println("Welcome to PetRescuer !");
+        System.out.println("***Welcome to PetRescuer***");
         getOwnerNameFromUser();
         initAnimal();
         displayAnimals();
         getAnimalFromUser();
         getAnimalNameFromUser();
+        requireFeeding(getOwner(),getAnimal(),getPetFood());
         // initFood();
         // initActivities();
         // displayFood();
@@ -36,34 +36,33 @@ public class Game {
         if (!name.isEmpty()) {
             System.out.println("Your owner's name is : " + name);
         } else {
-            System.out.println("Please use only letters !");
+            System.out.println("The name cannot be empty !");
             return getOwnerNameFromUser();
         }
         return name;
     }
 
-    private String getAnimalFromUser() {
+    private void getAnimalFromUser() {
         System.out.println("Choose the animal you want to rescue :");
         Scanner scanner = new Scanner(System.in);
-        String animal = scanner.nextLine();
-        if (!animal.isEmpty()) {
-            System.out.println("You rescued the " + animal);
+        String animalFromUser = scanner.nextLine();
+        if (animalFromUser.matches("Dog") || animalFromUser.matches("Cat")) {
+            System.out.println("You rescued : " + animalFromUser);
         } else {
             System.out.println("The animal you want is unavailable !");
-            return getAnimalFromUser();
+            getAnimalFromUser();
         }
-
-        return animal;
     }
 
     private String getAnimalNameFromUser() {
         System.out.println("Please select a name for your pet");
+//        log.print("Please select a name for your pet : add input in same line");
         Scanner scanner = new Scanner(System.in);
         String animalname = scanner.nextLine();
         if (!animalname.isEmpty()) {
-            System.out.println("Your pet's name is : " + animalname);
+            System.out.println("Your animal's name is : " + animalname);
         } else {
-            System.out.println("Please use only letters !");
+            System.out.println("The name cannot be empty !");
             return getAnimalNameFromUser();
         }
         return animalname;
@@ -94,15 +93,23 @@ public class Game {
     private void initAnimal() {
         Animal animal1 = new Animal();
         animal1.setName("Dog");
+        animal1.setAge(0);
+        animal1.setHappy(5);
+        animal1.setHealth(5);
+        animal1.setHunger(5);
+        animal1.setFavactivity("Walk");
+        animal1.setFavfood("Bones");
         Animal animal2 = new Animal();
         animal2.setName("Cat");
-        Animal animal3 = new Animal();
-        animal3.setName("Rabbit");
+        animal2.setAge(0);
+        animal2.setHappy(5);
+        animal1.setHealth(5);
+        animal1.setHunger(5);
+        animal1.setFavactivity("The ball");
+        animal1.setFavfood("Fish");
 
         availableAnimals.add(0, animal1);
         availableAnimals.add(1, animal2);
-        availableAnimals.add(2, animal3);
-
     }
 
     private void displayFood() {
@@ -124,12 +131,23 @@ public class Game {
     }
 
     private void displayAnimals() {
-        System.out.println("Available animals are : ");
+        System.out.println("Available animals are :");
         for (Animal animal : availableAnimals) {
             if (animal != null) {
                 System.out.println(animal.getName());
+
             }
         }
+    }
+
+    private void requireFeeding(Owner owner, Animal animal, PetFood petFood) {
+        System.out.println("Your animal is hungry, please feed him.");
+        initFood();
+        displayFood();
+        System.out.println("Choose a type of food : ");
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
+        owner.feed(owner,animal,petFood);
     }
 
     public Game() {
@@ -152,6 +170,13 @@ public class Game {
 
     public void setAnimal(Animal animal) {
         this.animal = animal;
+    }
+    public PetFood getPetFood() {
+        return petFood;
+    }
+
+    public void setPetFood(PetFood petFood) {
+        this.petFood = petFood;
     }
 
     public Doctor getDoctor() {

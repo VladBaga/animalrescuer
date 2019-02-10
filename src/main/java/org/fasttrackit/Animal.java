@@ -3,6 +3,7 @@ package org.fasttrackit;
 
 public class Animal {
 
+    public static Animal animal;
     private String name;
     private String color;
     private String favfood;
@@ -12,10 +13,9 @@ public class Animal {
     private double happy;
     private double health;
     private double hunger;
-    private int pawscount;
 
     public void happiness() {
-        System.out.println(getName() + "is happy.");
+        System.out.println(animal.getName() + "is happy.");
 
     }
 
@@ -30,7 +30,6 @@ public class Animal {
         this.happy = happy;
         this.health = health;
         this.hunger = hunger;
-        this.pawscount = pawscount;
     }                                   //Constructor
 
     public String getName() {
@@ -103,14 +102,6 @@ public class Animal {
 
     public void setHappy(double happy) {
         this.happy = happy;
-    }
-
-    public int getPawscount() {
-        return pawscount;
-    }
-
-    public void setPawscount(int pawscount) {
-        this.pawscount = pawscount;
     }
 
 }

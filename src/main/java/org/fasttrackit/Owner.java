@@ -6,7 +6,7 @@ public class Owner extends Human {
     private double coins;
     private Animal animal;
 
-    public void feed(Owner owner, Animal animal, PetFood petFood) {
+   public void feed(Owner owner, Animal animal, PetFood petFood) {
 
         System.out.println(owner.getName() + " just fed " + animal.getName() + " with " + petFood.getName());
         double hungerLevel = animal.getHunger() - 1;
@@ -27,11 +27,6 @@ public class Owner extends Human {
             double happyLevel2 = animal.getHappy() + 2;
             System.out.println("That's " + animal.getName() + " 's favourite activity, happiness : " + happyLevel2);
         }
-    }
-
-    public Owner(Animal animal) {
-        super(animal);
-        this.coins = coins;
     }
 
     public double getCoins() {

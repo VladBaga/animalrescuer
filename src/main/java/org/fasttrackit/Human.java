@@ -9,7 +9,7 @@ public class Human {
    private String eyecolor;
    private Animal animal;
 
-    public Human(Animal animal) {
+    public Human() {
         this.name = name;
         this.gender = gender;
         this.haircolor = haircolor;
