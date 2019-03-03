@@ -26,7 +26,6 @@ public class Animal {
         this.favfood = favfood;
         this.favactivity = favactivity;
         this.gender = gender;
-        this.age = age;
         this.happy = happy;
         this.health = health;
         this.hunger = hunger;

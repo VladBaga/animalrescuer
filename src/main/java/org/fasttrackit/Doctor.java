@@ -12,6 +12,9 @@ public class Doctor extends Human {
         this.vitamins = vitamins;
     }
 
+    public Doctor(Animal dog) {
+    }
+
 
     public String getSpecialization() {
         return specialization;
