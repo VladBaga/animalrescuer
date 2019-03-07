@@ -15,9 +15,9 @@ public class Game {
     private Doctor doctor;
 
     private List<Rescuer> availableRescuers = new ArrayList<>();
-    private Activity[] availableActivities = new Activity[10];
+    private Activity[] availableActivities = new Activity[2];
     private List<Animal> availableAnimals = new ArrayList<>();
-    private PetFood[] availableFood = new PetFood[10];
+    private PetFood[] availableFood = new PetFood[3];
 
     public void start() {
         System.out.println("***Welcome to PetRescuer***");
@@ -25,18 +25,34 @@ public class Game {
         initRescuer(1);
         initAnimal(1);
         for (Animal animal : availableAnimals) {
-
             if (animal.getHunger() > 0) {
-
                 requireFeeding();
 
             }
-            if(animal.getHappy() < 10){
-
+            if (animal.getHappy() < 10) {
                 requireActivity();
+            }
+            if (animal.getHunger() <= 0) {
+                    System.out.println("You saved " + animal.getName() + "from hunger, you won !");
+                    break;
+            }
+            if (animal.getHappy() >= 10) {
+                    System.out.println("You saved " + animal.getName() + "from boredom, you won !");
+                    break;
             }
         }
     }
+    //     while   (noWinnerYet == true){
+    //     for (Animal animal : availableAnimals) {
+    //         if (animal.getHappy() <= 9) {
+    //             requireActivity();
+    //         } else {
+    //             System.out.println("You saved " + animal.getName() + "from boredom, you won !");
+    //             noWinnerYet = false;
+    //             break;
+    //         }
+    //     }
+    // }
 
     private String getRescuerNameFromUser() {
         System.out.println("Please enter a name for your rescuer : ");
@@ -99,10 +115,15 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
         for (Rescuer rescuer : availableRescuers) {
             for (Animal animal : availableAnimals) {
-                int foodNumberFromUser = scanner.nextInt();
-                PetFood petFood = availableFood[foodNumberFromUser - 1];
-                System.out.println("Selected food : " + petFood.getName());
-                rescuer.feed(rescuer, animal, petFood);
+                try {
+                    int foodNumberFromUser = scanner.nextInt();
+                    PetFood petFood = availableFood[foodNumberFromUser - 1];
+                    System.out.println("Selected food : " + petFood.getName());
+                    rescuer.feed(rescuer, animal, petFood);
+                } catch (ArrayIndexOutOfBoundsException exception) {
+                    System.out.println("Invalid food number !");
+                    requireFeeding();
+                }
             }
         }
     }
@@ -115,10 +136,16 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
         for (Rescuer rescuer : availableRescuers) {
             for (Animal animal : availableAnimals) {
-                int activityNumberFromUser = scanner.nextInt();
-                Activity activity = availableActivities[activityNumberFromUser - 1];
-                System.out.println("Selected activity : " + activity.getName());
-                rescuer.play(rescuer, animal, activity);
+                try {
+                    int activityNumberFromUser = scanner.nextInt();
+                    Activity activity = availableActivities[activityNumberFromUser - 1];
+                    System.out.println("Selected activity : " + activity.getName());
+                    rescuer.play(rescuer, animal, activity);
+                } catch (ArrayIndexOutOfBoundsException exception) {
+                    System.out.println("Invalid activity");
+                    requireActivity();
+                }
+
             }
         }
     }
@@ -148,7 +175,7 @@ public class Game {
             rescuer.setGender(getGenderFromUser());
             rescuer.setAnimal(getAnimalFromUser());
             rescuer.setCoins(50);
-            System.out.println("Available coins :" + String.format( "%.0f", rescuer.getCoins()));
+            System.out.println("Available coins :" + String.format("%.0f", rescuer.getCoins()));
             availableRescuers.add(rescuer);
         }
     }
@@ -160,9 +187,9 @@ public class Game {
             Animal cat = new Animal();
             animal.setName(getAnimalNameFromUser());
             animal.setAge(0);
-            animal.setHappy(ThreadLocalRandom.current().nextDouble(0, 10));
+            animal.setHappy(9);
             animal.setHealth(ThreadLocalRandom.current().nextDouble(0, 10));
-            animal.setHunger(ThreadLocalRandom.current().nextDouble(0, 10));
+            animal.setHunger(1);
             animal.setFavactivity("walk");
             animal.setFavfood("bones");
             availableAnimals.add(animal);
