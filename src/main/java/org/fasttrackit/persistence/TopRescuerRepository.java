@@ -10,14 +10,15 @@ import java.util.List;
 
 public class TopRescuerRepository {
 
+
     public void createTopRescuer(TopRescuer topRescuer) throws SQLException, IOException, ClassNotFoundException {
         try(Connection connection = DatabaseConfiguration.getConnection())
         {
-            String insertSql = "INSERT INTO top_rescuers (`name`, rescuedAnimal, wonGames) VALUES (?, ?, ?)" + " ON DUPLICATE KEY UPDATE wonGames = wonGames+1";
+            String insertSql = "INSERT INTO top_rescuers (`name`, rescuedAnimalName, wonGames) VALUES (?, ?, ?)" + " ON DUPLICATE KEY UPDATE wonGames = wonGames+1";
 
             PreparedStatement preparedStatement = connection.prepareStatement(insertSql);
             preparedStatement.setString(1, topRescuer.getName());
-            preparedStatement.setString(2, topRescuer.getRescuedAnimal());
+            preparedStatement.setObject(2, topRescuer.getRescuedAnimalName());
             preparedStatement.setInt(3, topRescuer.getWonGames());
 
             preparedStatement.executeUpdate();
@@ -26,7 +27,7 @@ public class TopRescuerRepository {
     public List<TopRescuer> getTopRescuers() throws SQLException, IOException, ClassNotFoundException {
         try (Connection connection = DatabaseConfiguration.getConnection()) {
 
-            String query = "SELECT id, `name`, rescuedAnimal, wonGames FROM top_rescuers ORDER BY wonGames DESC"; //tilda (`) reserved keyword for name
+            String query = "SELECT id, `name`, rescuedAnimalName, wonGames FROM top_rescuers ORDER BY wonGames DESC"; //tilda (`) reserved keyword for name
 
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
@@ -37,8 +38,8 @@ public class TopRescuerRepository {
                 TopRescuer topRescuer = new TopRescuer();
                 topRescuer.setId(resultSet.getLong("id"));
                 topRescuer.setName(resultSet.getString("name"));
-                topRescuer.setRescuedAnimal(resultSet.getString("rescuedAnimal"));
-                topRescuer.setWonGames(resultSet.getInt("wonRaces"));
+                topRescuer.setRescuedAnimalName(resultSet.getString("rescuedAnimalName"));
+                topRescuer.setWonGames(resultSet.getInt("wonGames"));
 
                 response.add(topRescuer);
             }

@@ -44,6 +44,7 @@ public class Game {
                 }
                 TopRescuer topRescuer = new TopRescuer();
                 topRescuer.setName(rescuer.getName());
+                topRescuer.setRescuedAnimalName(animal.getName());
                 topRescuer.setWonGames(1);
                 topRescuerService.createTopRescuer(topRescuer);
             }

@@ -6,7 +6,7 @@ public class TopRescuer {
 
     private long id;
     private String name;
-    private String rescuedAnimal;
+    private String rescuedAnimalName;
     private int wonGames;
 
     public long getId() {
@@ -25,12 +25,13 @@ public class TopRescuer {
         this.name = name;
     }
 
-    public String getRescuedAnimal() {
-        return rescuedAnimal;
+    public String getRescuedAnimalName() {
+        return rescuedAnimalName;
     }
 
-    public void setRescuedAnimal(String rescuedAnimal) {
-        this.rescuedAnimal = rescuedAnimal;
+    public String setRescuedAnimalName(String rescuedAnimalName) {
+        this.rescuedAnimalName = rescuedAnimalName;
+        return rescuedAnimalName;
     }
 
     public int getWonGames() {
@@ -46,7 +47,7 @@ public class TopRescuer {
         return "TopRescuer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", rescuedAnimal='" + rescuedAnimal + '\'' +
+                ", rescuedAnimalName='" + rescuedAnimalName + '\'' +
                 ", wonGames=" + wonGames +
                 '}';
     }
