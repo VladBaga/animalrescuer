@@ -1,8 +1,12 @@
 package org.fasttrackit;
 
+import org.fasttrackit.domain.TopRescuer;
+import org.fasttrackit.service.TopRescuerService;
 import sun.invoke.empty.Empty;
 
+import java.io.IOException;
 import java.security.acl.Owner;
+import java.sql.SQLException;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -14,31 +18,34 @@ public class Game {
     private Animal animal;
     private Doctor doctor;
 
+    private TopRescuerService topRescuerService = new TopRescuerService();
     private List<Rescuer> availableRescuers = new ArrayList<>();
     private Activity[] availableActivities = new Activity[2];
     private List<Animal> availableAnimals = new ArrayList<>();
     private PetFood[] availableFood = new PetFood[3];
 
-    public void start() {
+    public void start() throws SQLException, IOException, ClassNotFoundException {
         System.out.println("***Welcome to PetRescuer***");
         displayRescuers();
         initRescuer(1);
         initAnimal(1);
-        for (Animal animal : availableAnimals) {
-            if (animal.getHunger() > 0) {
-                requireFeeding();
+        for (Rescuer rescuer : availableRescuers) {
+            for (Animal animal : availableAnimals) {
+                if (animal.getHunger() > 0) {
+                    requireFeeding();
 
-            }
-            if (animal.getHappy() < 10) {
-                requireActivity();
-            }
-            if (animal.getHunger() <= 0) {
-                    System.out.println("You saved " + animal.getName() + "from hunger, you won !");
-                    break;
-            }
-            if (animal.getHappy() >= 10) {
-                    System.out.println("You saved " + animal.getName() + "from boredom, you won !");
-                    break;
+                } else {
+                    System.out.println("Your animal is fed now, you won !");
+                }
+                if (animal.getHappy() < 10) {
+                    requireActivity();
+                } else {
+                    System.out.println("Your animal is happy now, you won !");
+                }
+                TopRescuer topRescuer = new TopRescuer();
+                topRescuer.setName(rescuer.getName());
+                topRescuer.setWonGames(1);
+                topRescuerService.createTopRescuer(topRescuer);
             }
         }
     }
@@ -120,7 +127,7 @@ public class Game {
                     PetFood petFood = availableFood[foodNumberFromUser - 1];
                     System.out.println("Selected food : " + petFood.getName());
                     rescuer.feed(rescuer, animal, petFood);
-                } catch (ArrayIndexOutOfBoundsException exception) {
+                } catch (ArrayIndexOutOfBoundsException | InputMismatchException exception) {
                     System.out.println("Invalid food number !");
                     requireFeeding();
                 }
@@ -141,7 +148,7 @@ public class Game {
                     Activity activity = availableActivities[activityNumberFromUser - 1];
                     System.out.println("Selected activity : " + activity.getName());
                     rescuer.play(rescuer, animal, activity);
-                } catch (ArrayIndexOutOfBoundsException exception) {
+                } catch (ArrayIndexOutOfBoundsException | InputMismatchException exception) {
                     System.out.println("Invalid activity");
                     requireActivity();
                 }
