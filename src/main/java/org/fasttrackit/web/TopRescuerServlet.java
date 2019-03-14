@@ -1,6 +1,7 @@
 package org.fasttrackit.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.fasttrackit.domain.TopRescuer;
 import org.fasttrackit.service.TopRescuerService;
 import org.fasttrackit.transfer.TopRescuerListResponse;
 
@@ -32,6 +33,18 @@ private TopRescuerService topRescuerService = new TopRescuerService();
 
         } catch (Exception e) {
             resp.sendError(500,"There was an error processing your request. " + e.getMessage()); //status code = 404 not found
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        TopRescuer topRescuer = objectMapper.readValue(req.getReader(), TopRescuer.class);
+
+        try {
+            topRescuerService.createTopRescuer(topRescuer);
+        } catch (Exception e) {
+            resp.sendError(500, "Internal error: " + e.getMessage());
         }
     }
 }
