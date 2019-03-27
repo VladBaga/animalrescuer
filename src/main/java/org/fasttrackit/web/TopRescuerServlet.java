@@ -47,4 +47,28 @@ private TopRescuerService topRescuerService = new TopRescuerService();
             resp.sendError(500, "Internal error: " + e.getMessage());
         }
     }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        TopRescuer topRescuer = objectMapper.readValue(req.getReader(), TopRescuer.class);
+
+        try {
+            topRescuerService.updateTopRescuer(topRescuer);
+        } catch (Exception e) {
+            resp.sendError(500, "Internal error: " + e.getMessage());
+        }
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        TopRescuer topRescuer = objectMapper.readValue(req.getReader(), TopRescuer.class);
+
+        try {
+            topRescuerService.deleteTopRescuer(topRescuer);
+        } catch (Exception e) {
+            resp.sendError(500, "Internal error: " + e.getMessage());
+        }
+    }
 }

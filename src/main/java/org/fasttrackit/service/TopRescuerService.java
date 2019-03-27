@@ -22,4 +22,14 @@ public class TopRescuerService {
         List<TopRescuer> topWinners = topRescuerRepository.getTopRescuers();
         return new TopRescuerListResponse(topWinners);
     }
+    public void updateTopRescuer(TopRescuer topRescuer) throws SQLException, IOException, ClassNotFoundException {
+
+        System.out.println("Updating top winner entry: " + topRescuer);
+        topRescuerRepository.updateTopRescuer(topRescuer);
+    }
+    public void deleteTopRescuer(TopRescuer topRescuer) throws SQLException, IOException, ClassNotFoundException {
+
+        System.out.println("Deleting top winner entry: " + topRescuer);
+        topRescuerRepository.deleteTopRescuer(topRescuer);
+    }
 }

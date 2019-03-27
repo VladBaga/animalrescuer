@@ -117,7 +117,7 @@ public class Game {
 
     private void requireFeeding() {
         System.out.println("Your animal is hungry, please feed him.");
-        System.out.println("Choose a type of food : ");
+        System.out.println("Choose a type of food by number : ");
         initFood();
         displayFood();
         Scanner scanner = new Scanner(System.in);
@@ -138,7 +138,7 @@ public class Game {
 
     private void requireActivity() {
         System.out.println("Your animal is unhappy, please play with him.");
-        System.out.println("Choose an activity : ");
+        System.out.println("Choose an activity by number : ");
         initActivities();
         displayActivities();
         Scanner scanner = new Scanner(System.in);
@@ -159,9 +159,9 @@ public class Game {
     }
 
     private void initFood() {
-        PetFood petFood1 = new PetFood("bones");
-        PetFood petFood2 = new PetFood("fish");
-        PetFood petFood3 = new PetFood("milk");
+        PetFood petFood1 = new PetFood("1. bones");
+        PetFood petFood2 = new PetFood("2. fish");
+        PetFood petFood3 = new PetFood("3. milk");
         availableFood[0] = petFood1;
         availableFood[1] = petFood2;
         availableFood[2] = petFood3;
@@ -169,8 +169,8 @@ public class Game {
 
     private void initActivities() {
 
-        Activity activity1 = new Activity("ball");
-        Activity activity2 = new Activity("walk");
+        Activity activity1 = new Activity("1. ball");
+        Activity activity2 = new Activity("2. walk");
 
         availableActivities[0] = activity1;
         availableActivities[1] = activity2;

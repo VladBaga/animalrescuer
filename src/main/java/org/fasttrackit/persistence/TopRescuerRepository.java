@@ -46,4 +46,31 @@ public class TopRescuerRepository {
             return response;
         }
     }
+
+    public void updateTopRescuer(TopRescuer topRescuer) throws SQLException, IOException, ClassNotFoundException {
+        try(Connection connection = DatabaseConfiguration.getConnection())
+        {
+            String updateSql = "UPDATE top_rescuers SET `name` = ?, rescuedAnimalName = ?, wonGames = ? WHERE id = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(updateSql);
+            preparedStatement.setLong(4, topRescuer.getId());
+            preparedStatement.setString(1,topRescuer.getName());
+            preparedStatement.setString(2,topRescuer.getRescuedAnimalName());
+            preparedStatement.setInt(3,topRescuer.getWonGames());
+
+
+            preparedStatement.executeUpdate();
+        }
+    }
+    public void deleteTopRescuer(TopRescuer topRescuer) throws SQLException, IOException, ClassNotFoundException {
+        try(Connection connection = DatabaseConfiguration.getConnection())
+        {
+            String deleteSql = "DELETE FROM top_rescuers WHERE id = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(deleteSql);
+            preparedStatement.setLong(1, topRescuer.getId());
+
+            preparedStatement.executeUpdate();
+        }
+    }
 }
